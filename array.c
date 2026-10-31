@@ -1,29 +1,28 @@
-#include <stdio.h>
-
 int main() {
-    int arr[10] = {10, 20, 30, 40, 50};
-    int n = 5, pos, value;
+    int a[5] = {10, 20, 30, 40, 50};   // every value given
+    int b[5] = {1, 2};                 // the rest become 0
+    int c[] = {7, 8, 9};               // size is worked out: 3
+    int d[5] = {0};                    // all five become 0
 
-    printf("Enter position (0 to %d) and value: ", n);
-    scanf("%d %d", &pos, &value);
+    int cn = sizeof(c) / sizeof(c[0]); // number of elements in c
 
-    if (n == 10) {
-        printf("Array is full.\n");
-    } else if (pos < 0 || pos > n) {
-        printf("Invalid position.\n");
-    } else {
-        for (int i = n - 1; i >= pos; i--) {
-            arr[i + 1] = arr[i];
-        }
-        arr[pos] = value;
-        n++;
-
-        printf("Array: ");
-        for (int i = 0; i < n; i++) {
-            printf("%d ", arr[i]);
-        }
-        printf("\n");
+    printf("a: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", a[i]);
     }
+    printf("\nb: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", b[i]);
+    }
+    printf("\nc: ");
+    for (int i = 0; i < cn; i++) {
+        printf("%d ", c[i]);
+    }
+    printf("\nd: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", d[i]);
+    }
+    printf("\n");
 
     return 0;
 }
