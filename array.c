@@ -1,28 +1,30 @@
+#include <stdio.h>
+
 int main() {
-    int a[5] = {10, 20, 30, 40, 50};   // every value given
-    int b[5] = {1, 2};                 // the rest become 0
-    int c[] = {7, 8, 9};               // size is worked out: 3
-    int d[5] = {0};                    // all five become 0
+    int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int t[3][2];
 
-    int cn = sizeof(c) / sizeof(c[0]); // number of elements in c
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            t[j][i] = a[i][j];
+        }
+    }
 
-    printf("a: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", a[i]);
+    printf("Original:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
     }
-    printf("\nb: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", b[i]);
+
+    printf("Transpose:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("%d ", t[i][j]);
+        }
+        printf("\n");
     }
-    printf("\nc: ");
-    for (int i = 0; i < cn; i++) {
-        printf("%d ", c[i]);
-    }
-    printf("\nd: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", d[i]);
-    }
-    printf("\n");
 
     return 0;
 }
